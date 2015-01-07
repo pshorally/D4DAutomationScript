@@ -13,10 +13,13 @@ Library                        Selenium2Library
 
 
 *** Variables ***
-${REMOTE_URL}                  http://127.0.0.1:4444/wd/hub
-${DESIRED_CAPABILITIES}        browserName:firefox,version:33.0,platform:WINDOWS,maxInstances:5,seleniumProtocol:WebDriver
+${REMOTE_URL}                  http://192.168.150.49:5555/wd/hub
+#${DESIRED_CAPABILITIES}        browserName:firefox,version:33.0,platform:WINDOWS,maxInstances:5,seleniumProtocol:WebDriver
 
-#${BROWSER}                     Firefox
+#${DESIRED_CAPABILITIES}        browserName:internetexplorer,platform:WINDOWS,maxInstances:1,seleniumProtocol:WebDriver
+${DESIRED_CAPABILITIES}        browserName:googlechrome,platform:WINDOWS,maxInstances:1,seleniumProtocol:WebDriver
+
+${BROWSER}                     googlechrome
 
 
 ${MAIN WINDOW}                  selenium_main_app_window
@@ -46,8 +49,8 @@ Clicks on Login button
     Click Element    xpath=.//*[@id='login-form']/footer/button
 
 Browser is opened to login catalyst
-#    Open Browser    ${ENVIRONMENT SERVER}    ${BROWSER TYPE}
-    Open Browser in Grid Node    ${ENVIRONMENT SERVER}
+    Open Browser    ${ENVIRONMENT SERVER}    ${BROWSER TYPE}
+#    Open Browser in Grid Node    ${ENVIRONMENT SERVER}
     Set Selenium Speed    ${DELAY}
 #    Set Selenium Timeout    ${DELAY SECONDS}
     Maximize Browser Window

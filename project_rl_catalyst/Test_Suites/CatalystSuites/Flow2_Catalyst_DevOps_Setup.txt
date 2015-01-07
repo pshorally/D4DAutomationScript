@@ -26,7 +26,7 @@ Catalyst import chef server nodes by provider
     [Teardown]     Close Browser
 
 Catalyst import chef server nodes
-    [Tags]       Sanity
+    [Tags]       Sanity       ps
 #    Catalyst Login
     Catalyst User "${VALID USER}" logs in with password "${VALID PASSWORD}"
     Chef server nodes import

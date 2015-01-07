@@ -11,7 +11,7 @@ Library            Collections
 
 Resource           catalyst.txt
 Resource           ${CATALYST TEST DATA}/${TESTDATA}
-
+Resource           ${CATALYST ACTION}/Organization_Setup_Action_Steps.txt
 
 *** Variables ***
 
@@ -28,19 +28,19 @@ Create New Config Management
     Upload user Pem File
     Upload Validator Pem File
     Upload Validator Knife File
-    Clicks on Save button to save the Environment details
+    Clicks on Save button to save the Environment detail
 
-Catalyst Logout
-    Clicks on LogOut link
-
-
+#Catalyst Logout
+#    Clicks on LogOut link
 
 
 
-Clicks on Settings
-#    Wait Until Element Is Visible      xpath=//a[contains(text(),'SETTINGS')]      1 seconds
-    Wait Until Keyword Succeeds    1 minute     1 seconds       Wait Until Element Is Visible       xpath=//a[contains(text(),'SETTINGS')]
-    Click Element    xpath=//a[contains(text(),'SETTINGS')]
+
+
+#Clicks on Settings
+##    Wait Until Element Is Visible      xpath=//a[contains(text(),'SETTINGS')]      1 seconds
+#    Wait Until Keyword Succeeds    1 minute     1 seconds       Wait Until Element Is Visible       xpath=//a[contains(text(),'SETTINGS')]
+#    Click Element    xpath=//a[contains(text(),'SETTINGS')]
 
 Clicks on DevOps Setup menu
     Wait Until Keyword Succeeds    1 minute     1 seconds       Wait Until Element Is Visible       xpath=//span[contains(text(),'DevOps Setup')]
@@ -69,23 +69,23 @@ Enters config management URL
 
 
 Upload user Pem File
-    Choose File     xpath=.//*[@id='userpemfile']          C:/Users/parameshwars.RLINDIA/Desktop/Catalyst/pcjoshi9.pem
+    Choose File     xpath=.//*[@id='userpemfile']         D:/Desktop26122014/Catalyst/pcjoshi9.pem
 
 Upload Validator Pem File
-    Choose File     xpath=.//*[@id='validatorpemfile']          C:/Users/parameshwars.RLINDIA/Desktop/Catalyst/pjlab-validator.pem
+    Choose File     xpath=.//*[@id='validatorpemfile']          D:/Desktop26122014/Catalyst/pjlab-validator.pem
 
 Upload Validator Knife File
-    Choose File     xpath=.//*[@id='kniferbfile']          C:/Users/parameshwars.RLINDIA/Desktop/Catalyst/knife.rb
+    Choose File     xpath=.//*[@id='kniferbfile']          D:/Desktop26122014/Catalyst/knife.rb
 
 
-Clicks on Save button to save the Environment details
+Clicks on Save button to save the Environment detail
     Click Element    xpath=//button[@class='btn btn-primary btn-mini'][1]
 
-Clicks on LogOut link
-    Wait Until Keyword Succeeds    1 minute     1 seconds       Wait Until Element Is Visible       xpath=.//*[@id='logout']/span/a/i
-    Click Element    xpath=.//*[@id='logout']/span/a/i
-    Wait Until Keyword Succeeds    1 minute     1 seconds       Wait Until Element Is Visible       xpath=.//*[@id='bot2-Msg1']
-    Click Element     xpath=.//*[@id='bot2-Msg1']
+#Clicks on LogOut link
+#    Wait Until Keyword Succeeds    1 minute     1 seconds       Wait Until Element Is Visible       xpath=.//*[@id='logout']/span/a/i
+#    Click Element    xpath=.//*[@id='logout']/span/a/i
+#    Wait Until Keyword Succeeds    1 minute     1 seconds       Wait Until Element Is Visible       xpath=.//*[@id='bot2-Msg1']
+#    Click Element     xpath=.//*[@id='bot2-Msg1']
 
 
 
@@ -234,9 +234,12 @@ Select Assign User
 
 Select Multiple Assign User
     Wait Until Keyword Succeeds    1 minute     1 seconds       Select From List     id=userListSelect      ${ASSIGN USERS}
-    Select From List     id=userListSelect      ${ASSIGN USERS}
-    Select From List     id=userListSelect      ${ASSIGN USERS1}
-    Select From List     id=userListSelect      ${ASSIGN USERS2}
+#    Select From List     id=userListSelect      ${ASSIGN USERS}
+#    Select From List     id=userListSelect      ${ASSIGN USERS1}
+#   Select From List     id=userListSelect      ${ASSIGN USERS2}
+    Select From List By Value     id=userListSelect      ${ASSIGN USERS}
+    Select From List By Value    id=userListSelect      ${ASSIGN USERS1}
+    Select From List By Value     id=userListSelect      ${ASSIGN USERS2}
 
 
 Click on Import button
@@ -294,68 +297,6 @@ Click on update button
 Import User Name and Password
     Input Text     id=importUsernameInput      ${VALID USER}
     Input Text     id=importPasswordInput      ${VALID PASSWORD}
-
-Reset the Project Data   ${RESET HEADER NAME}
-    [Arguments]    ${RESET HEADER NAME}
-        ${maxloop} =        Set Variable     200
-    :FOR    ${INDEX}    IN RANGE    1    ${maxloop}
-    \       ${no more chef server exists} =    Run Keyword and Return Status      Element Should Not Be Visible      xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]/td[1]
-    \       Exit For Loop If     ${no more chef server exists}
-    \       Wait Until Keyword Succeeds    1 minute     1 seconds       Element Should Be Visible       xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]
-    \       ${extracted chef server name}          Get Text       xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]/td[1]
-    \       Run Keyword If    '${extracted chef server name}' == '${RESET HEADER NAME}'       Click Element        xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]/td[7]/div/button
-    \       Click Element        xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]/td[7]/div/button
-    \       Exit For Loop If     '${extracted chef server name}' == '${RESET HEADER NAME}'
-
-Reset the Business Data   ${RESET HEADER NAME}
-    [Arguments]    ${RESET HEADER NAME}
-        ${maxloop} =        Set Variable     200
-    :FOR    ${INDEX}    IN RANGE    1    ${maxloop}
-    \       ${no more chef server exists} =    Run Keyword and Return Status      Element Should Not Be Visible      xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]/td[1]
-    \       Exit For Loop If     ${no more chef server exists}
-    \       Wait Until Keyword Succeeds    1 minute     1 seconds       Element Should Be Visible       xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]
-    \       ${extracted chef server name}          Get Text       xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]/td[1]
-    \       Run Keyword If    '${extracted chef server name}' == '${RESET HEADER NAME}'       Click Element        xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]/td[4]/div/button
-    \       Click Element        xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]/td[4]/div/button
-    \       Exit For Loop If     '${extracted chef server name}' == '${RESET HEADER NAME}'
-
-Reset the Environments Data   ${RESET HEADER NAME}
-    [Arguments]    ${RESET HEADER NAME}
-        ${maxloop} =        Set Variable     200
-    :FOR    ${INDEX}    IN RANGE    1    ${maxloop}
-    \       ${no more chef server exists} =    Run Keyword and Return Status      Element Should Not Be Visible      xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]/td[1]
-    \       Exit For Loop If     ${no more chef server exists}
-    \       Wait Until Keyword Succeeds    1 minute     1 seconds       Element Should Be Visible       xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]
-    \       ${extracted chef server name}          Get Text       xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]/td[1]
-    \       Run Keyword If    '${extracted chef server name}' == '${RESET HEADER NAME}'       Click Element        xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]/td[4]/div/button
-    \       Click Element        xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]/td[4]/div/button
-    \       Exit For Loop If     '${extracted chef server name}' == '${RESET HEADER NAME}'
-
-
-Reset the Organizations Data   ${RESET HEADER NAME}
-    [Arguments]    ${RESET HEADER NAME}
-        ${maxloop} =        Set Variable     200
-    :FOR    ${INDEX}    IN RANGE    1    ${maxloop}
-    \       ${no more chef server exists} =    Run Keyword and Return Status      Element Should Not Be Visible      xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]/td[1]
-    \       Exit For Loop If     ${no more chef server exists}
-    \       Wait Until Keyword Succeeds    1 minute     1 seconds       Element Should Be Visible       xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]
-    \       ${extracted chef server name}          Get Text       xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]/td[1]
-    \       Run Keyword If    '${extracted chef server name}' == '${RESET HEADER NAME}'       Click Element        xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]/td[4]/div/button
-    \       Click Element        xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]/td[4]/div/button
-    \       Exit For Loop If     '${extracted chef server name}' == '${RESET HEADER NAME}'
-
-Reset the Chef Server Data   ${RESET HEADER NAME}
-    [Arguments]    ${RESET HEADER NAME}
-        ${maxloop} =        Set Variable     200
-    :FOR    ${INDEX}    IN RANGE    1    ${maxloop}
-    \       ${no more chef server exists} =    Run Keyword and Return Status      Element Should Not Be Visible      xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]/td[1]
-    \       Exit For Loop If     ${no more chef server exists}
-    \       Wait Until Keyword Succeeds    1 minute     1 seconds       Element Should Be Visible       xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]
-    \       ${extracted chef server name}          Get Text       xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]/td[1]
-    \       Run Keyword If    '${extracted chef server name}' == '${RESET HEADER NAME}'       Click Element        xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]//td[5]/div/a[1]
-    \       Click Element        xpath=//div[@id='envtable_wrapper']/table/tbody/tr[${INDEX}]//td[5]/div/a[1]
-    \       Exit For Loop If     '${extracted chef server name}' == '${RESET HEADER NAME}'
-
 
 Click on control panel
     Wait Until Keyword Succeeds    1 minute     1 seconds       Element Should Be Visible       xpath=//button[@class='btn btn-primary actionControlPanel']

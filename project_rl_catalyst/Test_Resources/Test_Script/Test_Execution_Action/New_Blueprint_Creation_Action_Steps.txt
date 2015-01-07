@@ -21,7 +21,7 @@ Create CENT OS New blueprint without cookbook
     Click on Design Link
     Select blueprint card
     Click on Next Button
-    Select Stack from Standard Gallery     ${CENTOS STACK}
+    Select Stack from Standard Gallery     ${TOMCAT STACK}
     Click on Next Button
     Choose Operating System     ${CENT OS}
     Click on Next Button
@@ -50,7 +50,7 @@ Create CENT OS New blueprint with cookbook
     Click on Next Button
     Select Stack from Standard Gallery     ${LAMP STACK}
     Click on Next Button
-    Choose Operating System      ${CENT OS}
+    Choose Operating System       ${CENT OS}
     Select Apache cook books
     Select Java cook books
     Click on Next Button
@@ -78,7 +78,7 @@ Create ubuntu OS New blueprint without cookbook
     Click on Design Link
     Select blueprint card
     Click on Next Button
-    Select Stack from Standard Gallery     ${CENTOS STACK}
+    Select Stack from Standard Gallery     ${TOMCAT STACK}
     Click on Next Button
     Choose Operating System     ${UBUNTU OS}
     Click on Next Button
@@ -154,7 +154,7 @@ Click on new button
     Click Element    link=New
 
 Click on orchistration tab
-    Click Element      xpath=.//*[@id='myTab3']/li[3]/a
+    Click Link      link=Orchestration         #xpath=.//*[@id='myTab3']/li[3]/a
 
 Enter orchistration task name
     Input Text      xpath=.//*[@id='chef-dropdown']/form[1]/fieldset/section[1]/div/div/label/input    ${TASK NAME}
@@ -314,7 +314,7 @@ Select AppFactory
 
 Click on Blueprints Tab
     Wait Until Keyword Succeeds    1 minute     1 seconds       Wait Until Element Is Visible       xpath=.//*[@id='myTab3']/li[2]/a
-    Click Link    xpath=.//*[@id='myTab3']/li[2]/a
+    Click Element    xpath=.//*[@id='myTab3']/li[2]/a
 
 Click on Environment
     Wait Until Keyword Succeeds    1 minute     1 seconds       Wait Until Element Is Visible       xpath=//a[@title='${ENVIRONMENT NAME}' and @class='Envtextoverflow']
