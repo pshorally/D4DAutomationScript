@@ -69,13 +69,13 @@ Enters config management URL
 
 
 Upload user Pem File
-    Choose File     xpath=.//*[@id='userpemfile']         D:/Desktop26122014/Catalyst/pcjoshi9.pem
+    Choose File     xpath=.//*[@id='userpemfile']         ${USERPEMFILE}         #D:/Desktop26122014/Catalyst/pcjoshi9.pem
 
 Upload Validator Pem File
-    Choose File     xpath=.//*[@id='validatorpemfile']          D:/Desktop26122014/Catalyst/pjlab-validator.pem
+    Choose File     xpath=.//*[@id='validatorpemfile']          ${VALIDATORPEMFILE}         #D:/Desktop26122014/Catalyst/pjlab-validator.pem
 
 Upload Validator Knife File
-    Choose File     xpath=.//*[@id='kniferbfile']          D:/Desktop26122014/Catalyst/knife.rb
+    Choose File     xpath=.//*[@id='kniferbfile']          ${KNIFERBFILE}         #D:/Desktop26122014/Catalyst/knife.rb
 
 
 Clicks on Save button to save the Environment detail

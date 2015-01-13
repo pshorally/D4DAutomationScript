@@ -97,8 +97,8 @@ Clicks on Save button to save the Organization details
     Click Element    xpath=//button[@onclick="if(validateForm())saveform('1');"]
 
 Clicks on Organization setup menu
-    Wait Until Keyword Succeeds    1 minute     1 seconds       Wait Until Element Is Visible       css=span.menu-item-parent    #xpath=//span[./text()='Organization Setup']
-    Click Element    css=span.menu-item-parent       #xpath=//span[./text()='Organization Setup']
+    Wait Until Keyword Succeeds    1 minute     1 seconds       Wait Until Element Is Visible       xpath=//span[./text()='Organization Setup']
+    Click Element    xpath=//span[./text()='Organization Setup']
 
 Clicks on Business Groups menu
     Wait Until Keyword Succeeds    1 minute     1 seconds       Wait Until Element Is Visible       xpath=//span[./text()='Business Groups']

@@ -19,7 +19,7 @@ ${REMOTE_URL}                  http://192.168.150.49:5555/wd/hub
 #${DESIRED_CAPABILITIES}        browserName:internetexplorer,platform:WINDOWS,maxInstances:1,seleniumProtocol:WebDriver
 ${DESIRED_CAPABILITIES}        browserName:googlechrome,platform:WINDOWS,maxInstances:1,seleniumProtocol:WebDriver
 
-${BROWSER}                     googlechrome
+${BROWSER}                     firefox
 
 
 ${MAIN WINDOW}                  selenium_main_app_window

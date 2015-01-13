@@ -58,3 +58,7 @@ ${PHOENIX COMMERCE WITH COOKBOOK UBUNTUOS}          Phoenix Commerce With CookBo
 ${PHOENIX COMMERNCE WITHOUT COOKBOOK CENTOS}            Phoenix Commernce without Cookbook CENTOS
 ${PHOENIX COMMERCE WITH COOKBOOK CENTOS}          Phoenix Commerce With CookBook CENTOS
 ${TASK NAME}          Test Task
+
+${USERPEMFILE}              ${CATALYST ROOT}/Chef/Catalyst/pcjoshi9.pem
+{VALIDATORPEMFILE}      ${CATALYST ROOT}/Chef/pjlab-validator.pem
+${KNIFERBFILE}                ${CATALYST ROOT}/Chef/Catalyst/knife.rb
